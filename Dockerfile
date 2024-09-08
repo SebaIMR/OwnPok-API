@@ -1,5 +1,5 @@
 # Usar una imagen oficial de Python como base
-FROM python:3.10-slim
+FROM python:3.11-slim
 
 # Establecer el directorio de trabajo
 WORKDIR /app
@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Exponer el puerto de la aplicación
-EXPOSE 8000
+EXPOSE 8080
 
 # Comando para ejecutar la aplicación
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
