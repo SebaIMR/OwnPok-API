@@ -1,5 +1,9 @@
 # Usar una imagen oficial de Python como base
-FROM python:3.11-slim
+FROM python:3.9
+
+# Instalar dependencias del sistema necesarias para psycopg2
+RUN apt-get update && apt-get install -y \
+    libpq-dev gcc
 
 # Establecer el directorio de trabajo
 WORKDIR /app
