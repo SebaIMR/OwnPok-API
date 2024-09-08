@@ -5,7 +5,7 @@ from .database import engine, Base
 app = FastAPI()
 
 # Importa y crea las tablas si no existen
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)
 
 # Incluir routers
 app.include_router(example.router)
