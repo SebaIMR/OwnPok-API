@@ -5,6 +5,7 @@ from .config import settings
 from google.cloud.sql.connector import Connector
 
 # Configurar el conector de Google Cloud SQL
+## PROBANDING ALGO
 connector = Connector()
 
 def getconn():
