@@ -1,12 +1,13 @@
 from sqlalchemy import Column, Integer, String
 from ..database import Base
 
-class Pokemon:
-    def __init__(self, id, name, type, level):
-        self.id = id
-        self.name = name
-        self.type = type
-        self.level = level
+class Pokemon(Base):
+    __tablename__ = "pokemons"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True)
+    type = Column(String)
+    level = Column(Integer)
 
     @classmethod
     def default_pokemon(cls):

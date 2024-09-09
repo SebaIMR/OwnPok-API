@@ -38,9 +38,9 @@ def read_pokemons(skip: int = 0, limit: int = 10, db: Session = Depends(get_db))
     pokemons = db.query(models.Pokemon).offset(skip).limit(limit).all()
     return pokemons
 
-@router.post("/pokemons", response_model=schemas.Pokemon)
-def crear_pokemon(pokemon: schemas.PokemonCreate, db: Session = Depends(get_db)):
-    db_pokemon = models.Pokemon(**pokemon.dict())
+@router.post("/pokemons/create", response_model=schemas.Pokemon)
+def create_pokemon(pokemon: schemas.PokemonCreate, db: Session = Depends(get_db)):
+    db_pokemon = models.Pokemon(**pokemon.model_dump())
     db.add(db_pokemon)
     db.commit()
     db.refresh(db_pokemon)
